@@ -1,19 +1,17 @@
 import React from 'react'
 import PropTypes from 'prop-types'
+import WishItem from './WishItem'
 
 export default function WishList({ wishes, setWishes }) {
+    const onCompletedChange = (i, checked) => {
+        const tempWishes = [...wishes]
+        tempWishes[i].completed = checked
+        setWishes(tempWishes)
+    }
     return (
         <ul className="wish-list">
             {wishes.map((wish, i) => (
-                //
-                <li key={wish.id} className={`wish-list__item ${wish.completed ? 'wish-list__item--done' : ''}`}>
-                    <input type="checkbox" checked={wish.completed} id={wish.id} onChange={(e) => {
-                        const tempWishes = [...wishes]
-                        tempWishes[i].completed = e.target.checked
-                        setWishes(tempWishes)
-                    }} />
-                    <label htmlFor={wish.id}>{wish.text}</label>
-                </li>
+                <WishItem key={wish.id} wish={wish} onCompletedChange={(checked) => { onCompletedChange(i, checked) }} />
             ))}
         </ul>
     )
