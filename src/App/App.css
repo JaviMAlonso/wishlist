@@ -54,3 +54,20 @@ html {
 .wish-list__item--done {
     text-decoration: line-through;
 }
+
+.wish-list__item--warn {
+    color: yellow;
+}
+
+.wish-list__item--danger {
+    color: red;
+}
+
+.wish-clear {
+    width: 100%;
+    padding: 0.5rem;
+    background-color: white;
+    font-size: 1.2rem;
+    border: 1px solid gray;
+    border-radius: 3px;
+}
